@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rashed091/react-app -f Dockerfile.dev .
+
+script:
+  - docker run rashed091/react-app npm run test -- --coverage
